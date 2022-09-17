@@ -42,7 +42,7 @@ int romanToInt(char * s)
         }
 
         last = current;
-}
+    }
         return sum;
 
 }

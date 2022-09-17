@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -22,7 +23,18 @@ char * longestCommonPrefix(char ** strs, int strsSize)
 
 int main(int argc, char* argv[])
 {
-    char** strs = (char* []) {"leets", "leetcode", "leet", "leeds"};
-    printf("%s",longestCommonPrefix(strs,4));
-    return 1;
+	char* strs[4];
+    strs[0] = malloc(6 * sizeof(char));
+    strcpy(strs[0], "leets");
+    strs[1] = malloc(9 * sizeof(char));
+    strcpy(strs[1], "leetcode");
+    strs[2] = malloc(5 * sizeof(char));
+    strcpy(strs[2], "leet");
+    strs[3] = malloc(6 * sizeof(char));
+    strcpy(strs[3], "leeds");
+    longestCommonPrefix(strs, 4);
+    printf("%s\n", strs[0]);
+
+
+   return 0;
 }
