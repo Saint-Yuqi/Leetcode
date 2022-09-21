@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/malloc/_malloc.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,6 +53,7 @@ void quickSort(int* arrays, int f, int l)
 
 int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes)
 {
+    
     if (numsSize < 3) 
     {
         return 0;
@@ -60,10 +62,16 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
     //ans is a 2D array, if we have 100 solutions, we need 100 space of pointer
     //every one pointer can point to one array which is one solution
     //(*returnSize) record how many solutions
-    int **ans = (int **)malloc(sizeof(int*) * (*returnSize));
+    *returnColumnSizes = (int*)malloc(sizeof(int) * (10000));
+    for (int k = 0; k < (*returnSize); k++)
+    {
+        *returnColumnSizes[k] = 3;    
+    }
+
+    int **ans = (int **)malloc(sizeof(int*) * (10000));
     //returnSize is one pointer, *returnSize is the value
     // I would use two-pointer to avoid the repeated number.
-    *returnSize = 0;
+    *returnSize  = 0;
     for (int i = 0; i < numsSize - 2; ++i)
     {
 
@@ -98,16 +106,12 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
                 temp[0] = nums[i];
                 temp[1] = nums[j];
                 temp[2] = nums[third];
-                ans[(*returnSize)++] = temp;         
+                ans[(*returnSize)++] = temp;         //?
             }
 
         }
     }
-    *returnColumnSizes = (int*)malloc(sizeof(int) * (*returnSize));
-    for (int k = 0; k < (*returnSize); k++)
-    {
-        *returnColumnSizes[k] = 3;    
-    }
+    
     return ans;
 }
 
