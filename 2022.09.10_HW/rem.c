@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <string.h>
 
+
+
 bool isMatch(char* s, char* p)
 {
     int str = 0;
@@ -12,6 +14,7 @@ bool isMatch(char* s, char* p)
     ptn = strlen(p); //the length of the pattern string 
     char dp[str][ptn];
     dp[0][0] = true;
+
     for (int i = 0; i < str; i++)
     {
         for (int j = 0; j < ptn; j++)
@@ -21,6 +24,7 @@ bool isMatch(char* s, char* p)
                 if (s[i] == p[j - 1] || p[j - 1] == '.')
                 {
                     dp[i][j] = dp[i - 1][j]; // means if a* works for current i , it may also works for latter i , so I don't gave up it.
+
                 }
                 else
                 {
@@ -48,7 +52,7 @@ bool isMatch(char* s, char* p)
 int main (int argc, char* argv[])
 {
     char s[2] = {'a','a'};
-    char p[2] = {'a','*'};
+    char p[2] = {'b','*'};
     if (isMatch(s, p) == true)
     {
         printf("true");
