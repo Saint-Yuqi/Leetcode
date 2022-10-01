@@ -22,6 +22,7 @@ bool isPalindrome(int x)
         return true;
     }
     return 0;
+   
 
 }
 int main(int argc, char *argv[])
