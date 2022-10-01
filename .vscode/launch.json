@@ -10,8 +10,8 @@
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args":[],
+            "cwd": "${workspaceFolder}",
             
-            "cwd": "${workspaceFolder}"
         }    
 
     ] 
